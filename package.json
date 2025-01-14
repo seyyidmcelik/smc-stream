@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file=.env --watch src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "amqplib": "^0.10.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.3",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.6",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "@types/ws": "^8.5.13"
+  }
+}
