@@ -1,6 +1,7 @@
 import { type Server } from 'node:http';
-import { WebSocketServer } from 'ws';
 import { type Channel } from 'amqplib';
+import { WebSocketServer } from 'ws';
+
 import { consumeRabbitMQMessages } from '../messaging/rabbitmq.ts';
 
 export function setupWebSocketServer(server: Server, channel: Channel, exchangeName: string) {

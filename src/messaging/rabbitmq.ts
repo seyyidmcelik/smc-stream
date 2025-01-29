@@ -23,17 +23,14 @@ export async function consumeRabbitMQMessages(
     wss: WebSocketServer
 ) {
     try {
-        // Geçici bir kuyruk oluştur
         const queue = await channel.assertQueue('', { exclusive: true });
         await channel.bindQueue(queue.queue, exchangeName, '');
 
-        // Mesajları tüket
         channel.consume(queue.queue, (msg) => {
             if (msg) {
                 const receivedMessage = msg.content.toString();
                 console.log(`Received message from RabbitMQ: ${receivedMessage}`);
 
-                // Tüm WebSocket istemcilerine mesaj gönder
                 wss.clients.forEach((client) => {
                     if (client.readyState === client.OPEN) {
                         client.send(receivedMessage);
